@@ -1,0 +1,26 @@
+<div class="flight-content">
+  <h1 class="page-title">Flights</h1>
+  <div class="flight-search">
+    <form #flightForm="ngForm" (ngSubmit)="searchFlight(flightForm)" novalidate>
+      <input type="text" id="departure" class="form-control" placeholder="7:30AM" required name="departure" [(ngModel)]="departure"
+        #flight="ngModel">
+      <div *ngIf="flight.errors && filght.dirty" class="alert alert-danger">
+        <div [hidden]="!flight.errors.required">
+          Departure is required.
+        </div>
+      </div>
+    </form>
+  </div>
+  <ul class="flight-list">
+    <li *ngFor="let flight of flights">
+      <div class="flight-row">
+        <span class="flight-title">
+          {{flight.flight}}
+        </span>
+      </div>
+    </li>
+  </ul>
+  <div class="no-flights" *ngIf="flights && flights.length == 0">
+    <p>No flights Found!</p>
+  </div>
+</div>
