@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
-import { Headers, Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
 import { Flight } from '../models/flight';
+
 
 @Injectable()
 export class FlightService {
-    private baseUrl = 'http://localhost:8080';
+    private baseUrl = 'http://localhost:4200';
 
     constructor(private http: Http) { }
 
-    searchFlights(departure: string): Promise<Flight[]> {
+    searchFlights(departure:string): Observable<Flight[]> {
         return this.http.get(this.baseUrl + '/api/flights/' + departure)
-            .toPromise()
-            .then(response => response.json() as Flight[])
-            .catch(this.handleError);
+        .map(response => {
+            const data = response.json().data;
+            return data;
+        });
     }
 
     private handleError(error: any): Promise<any> {
