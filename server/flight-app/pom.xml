@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>flight-app</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Flight Booking App</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
