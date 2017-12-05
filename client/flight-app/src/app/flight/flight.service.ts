@@ -10,8 +10,8 @@ export class FlightService {
 
     constructor(private http: Http) { }
 
-    getFlights(): Promise<Flight[]> {
-        return this.http.get(this.baseUrl + '/api/flights/')
+    searchFlights(departure: string): Promise<Flight[]> {
+        return this.http.get(this.baseUrl + '/api/flights/' + departure)
             .toPromise()
             .then(response => response.json() as Flight[])
             .catch(this.handleError);

@@ -1,10 +1,11 @@
 <div class="flight-content">
   <h1 class="page-title">Flights</h1>
   <div class="flight-search">
-    <form #flightForm="ngForm" (ngSubmit)="searchFlight(flightForm)" novalidate>
-      <input type="text" id="departure" class="form-control" placeholder="7:30AM" required name="departure" [(ngModel)]="departure"
+    <form #flightForm="ngForm" (ngSubmit)="searchFlights(flightForm)" novalidate>
+      <button>Search</button>
+      <input type="text" id="departure" class="form-control" placeholder="7:30 AM" required name="departure" [(ngModel)]="departure"
         #flight="ngModel">
-      <div *ngIf="flight.errors && filght.dirty" class="alert alert-danger">
+      <div *ngIf="flight.errors && flight.dirty" class="alert alert-danger">
         <div [hidden]="!flight.errors.required">
           Departure is required.
         </div>

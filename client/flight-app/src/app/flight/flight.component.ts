@@ -15,11 +15,10 @@ export class FlightComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getFlights();
   }
 
-  getFlights(): void {
-    this.FlightService.getFlights()
+  searchFlights(): void {
+    this.FlightService.searchFlights(this.departure)
       .then(flights => this.flights = flights);
   }
 }
