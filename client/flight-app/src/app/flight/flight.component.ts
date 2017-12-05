@@ -19,7 +19,7 @@ export class FlightComponent implements OnInit {
     }
 
     searchFlights(): void {
-        this.FlightService.searchFlights().subscribe(response => {
+        this.FlightService.searchFlights(this.departure).subscribe(response => {
             this.flights = response;
         });
     }

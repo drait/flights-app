@@ -12,7 +12,7 @@ export class FlightService {
 
     constructor(private http: Http) { }
 
-    searchFlights(departure:string): Observable<Flight[]> {
+    searchFlights(departure: string): Observable<Flight[]> {
         return this.http.get(this.baseUrl + '/api/flights/' + departure)
         .map(response => {
             const data = response.json().data;
