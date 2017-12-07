@@ -5,8 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'app-flight',
-    templateUrl: './flight.component.html',
-    styleUrls: ['./flight.component.css']
+    templateUrl: './flight.component.html'
 })
 export class FlightComponent implements OnInit {
     flights: Flight[];

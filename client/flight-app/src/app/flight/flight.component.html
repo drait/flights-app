@@ -1,6 +1,5 @@
-<div class="flight-content">
-  <h1 class="page-title">Flights</h1>
-  <div class="flight-search">
+<mat-card>
+    <h1>Flights</h1>
     <form #flightForm="ngForm" (ngSubmit)="searchFlights(signupForm)">
         <mat-form-field>
             <input matInput 
@@ -12,23 +11,19 @@
                 [(ngModel)]="departure"
                 #flight="ngModel">
         </mat-form-field>
-        <div *ngIf="flight.errors && flight.dirty" class="alert alert-danger">
+        <div *ngIf="flight.errors && flight.dirty">
             <div [hidden]="!flight.errors.required">Departure is required.</div>
         </div>
-        <button mat-button [disabled]="false">Search</button>    
+        <button mat-raised-button color="primary" [disabled]="departure">Search</button>    
     </form>
-  </div>
-
-  <ul class="flight-list">
-    <li *ngFor="let flight of flights">
-      <div class="flight-row">
-        <span class="flight-title">
-          {{flight.flight}}
-        </span>
-      </div>
-    </li>
-  </ul>
-  <div class="no-flights" *ngIf="flights && flights.length == 0">
-    <p>No flights Found!</p>
-  </div>
-</div>
+    <ul>
+        <li *ngFor="let flight of flights">
+            <div>
+                <span>{{flight.flight}}</span>
+            </div>
+        </li>
+    </ul>
+    <div *ngIf="flights && flights.length == 0">
+        <p>No flights Found!</p>
+    </div>
+</mat-card>
